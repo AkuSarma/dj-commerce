@@ -26,7 +26,7 @@ class Product(models.Model):
     product_upload_time = models.DateTimeField(default=None)
     product_cover_photo = models.ImageField()
     product_extra_photos = models.ImageField(null=True)
-    product_category = models.CharField(default=None, null=True)
+    product_category = models.CharField(default=None, null=True, max_length=1000)
 
     def __str__(self) -> str:
         return self.product_id
