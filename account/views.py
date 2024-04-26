@@ -10,9 +10,9 @@ def register(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        if len(password) < 6:
-            messages.error(request, "Password must be at least 6 characters")
-            return redirect('register')
+        # if len(password) < 6:
+        #     messages.error(request, "Password must be at least 6 characters")
+        #     return redirect('register')
         
         get_all_users_by_username  = User.objects.filter(username=userName).exists()
         if get_all_users_by_username:
@@ -35,7 +35,7 @@ def login_page(request):
         if user is not None :
             login(request, user)
             messages.info(request,"You are  now logged in.")
-            return redirect("home-page")
+            return redirect("home-store")
         else:
             messages.error(request, "Invalid username or password!")
     return render(request, 'account/login.html', {})
